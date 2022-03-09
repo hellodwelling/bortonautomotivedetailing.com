@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://bortonautomotivedetailing.com/sitemap.xml
