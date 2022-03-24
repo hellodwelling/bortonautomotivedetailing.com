@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,20 +39,20 @@
     <link href="https://prophone.herokuapp.com/staticfiles/landing_page_gen/style.css" rel="stylesheet">
     
     <link href="https://prophone.herokuapp.com/staticfiles/landing_page_gen/render.css" rel="stylesheet">
-    
+     <!-- <script src="/staticfiles/landing_page_gen/render.js"></script>   -->
     <script src="https://prophone.herokuapp.com/staticfiles/landing_page_gen/render.js"></script> 
 </head>
 
 <body>
 
-
-
 <div class = "flex w-full flex-col">  
-    <div class="fixed z-40 w-full lg:h-25 lg:py-4 items-start justify-start  bg-black text-white  dark-mode:text-gray-200 dark-mode:bg-gray-800">
+    
+
+<div class="fixed z-40 w-full lg:h-25 lg:py-4 items-start justify-start  bg-black text-white  dark-mode:text-gray-200 dark-mode:bg-gray-800">
   <div x-data="{ open: false }" class="flex flex-col lg:flex-r max-w-screen-xl px-4 mx-auto lg:items-center lg:justify-between lg:flex-row lg:px-6 lg:px-8">
     <div class="py-4 flex flex-row items-center justify-between">
       
-        <a href= " #about "> <img class="h-16 w-auto relative" src="https://landing-page-app-hero-images.s3.amazonaws.com/media/D9DQITR9EKA7NEJ4OYH15ISF28OMTRZF5M1VIKJQ.jpeg" alt="Borton Automotive Detailing LTD. logo"> </a>
+        <a href= " index "> <img class="h-16 w-auto relative" src="https://landing-page-app-hero-images.s3.amazonaws.com/media/D9DQITR9EKA7NEJ4OYH15ISF28OMTRZF5M1VIKJQ.jpeg" alt="Borton Automotive Detailing LTD. logo"> </a>
       
       <button class="lg:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
         <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -60,46 +61,65 @@
         </svg>
       </button>
     </div>
-    <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 lg:pb-0 hidden lg:flex lg:flex-row  lg:justify-end ">
+    <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 lg:pb-0 hidden lg:flex lg:flex-row  lg:justify-center ">
     
       
 <a 
     class="px-4 py-2 mt-2 text-lg  font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" 
-    href="#about">About Us
+    href="index">About Us
 </a>
       
       
 <a 
     class="px-4 py-2 mt-2 text-lg  font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" 
-    href="#services">Our Services
+    href="services">Our Services
 </a>
-     
+ 
       
-<a 
-    class="px-4 py-2 mt-2 text-lg  font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" 
-    href="#our-work">A Glimpse of Our Passion
-</a>
-     
+        
+
+<div id='mobile-dropdown-parent' onclick='toggleDropDownMobile()' class="px-4 py-2 mt-2 text-lg font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 group flex flex-col relative ">
+    <div> Galleries
+        <i class="fa fa-caret-down"></i>
+    </div>
+    <!-- for desktop -->
+    <div class="hidden lg:group-hover:opacity-100 lg:opacity-0 transition duration-500 ease-in-out lg:flex flex-col bg-white z-50 w-full min-w-max absolute top-10 shadow-lg rounded-md px-4 py-4 space-y-3">
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Motor-and-Wheels-Off"> Motor and Wheels Off </a>
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Detailing-Videos"> Detailing Videos </a>
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Painting-Correction-and-Ceramic"> Painting Correction and Ceramic </a>
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Interior-Detailing"> Interior Detailing </a>
+        
+    </div> 
+    <!-- for mobile b/c can't enable tailwind variants w/o postcss build -->
+    <div id='mobile-dropdown' class="lg:hidden hidden transition duration-500 ease-in-out flex flex-col bg-white z-50 w-full min-w-max absolute top-10 shadow-lg rounded-md px-4 py-4 space-y-3">
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Motor-and-Wheels-Off"> Motor and Wheels Off </a>
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Detailing-Videos"> Detailing Videos </a>
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Painting-Correction-and-Ceramic"> Painting Correction and Ceramic </a>
+        
+            <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Interior-Detailing"> Interior Detailing </a>
+        
+    </div> 
+
+</div>
+
+
+  
+      
            
       
 <a 
     class="px-4 py-2 mt-2 text-lg  font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" 
-    href="#testimonials">Reviews
+    href="testimonials">Reviews
 </a>
  
-         
-      
-<a 
-    class="px-4 py-2 mt-2 text-lg  font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" 
-    href="#faqs">FAQs
-</a>
-     
-      
-<a 
-    class="px-4 py-2 mt-2 text-lg  font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" 
-    href="#find-us">Service Areas
-</a>
-   
+              
     
   
 
@@ -107,876 +127,21 @@
     
       <div class = "px-4 py-2 lg:pb-3 mt-2 text-xl font-bold bg-transparent rounded-lg lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "x-data="{open: false}">
       
-        <a class="font-small"  target="_blank" rel="noopener noreferrer" href="//borton-automotive-detailing-ltd.square.site/">Book Now</a>
+        <a class="font-small"  target="_blank" rel="noopener noreferrer" href="https://borton-automotive-detailing-ltd.square.site/">Book Now</a>
            
       
         
     </nav>
   </div>
 </div>
-    <section   
-class="flex relative flex-col w-full  bg-white text-black  lg:flex-row lg:flex-wrap sm:mx-auto pt-12 mt-12">
-    <div class="flex justify-end p-8 lg:py-32 lg:px-16 lg:pl-10 lg:w-1/2">
-        <div class="flex flex-col items-center lg:items-start justify-center w-full lg:max-w-lg">
-            <h2 class="mb-3 text-3xl text-center font-extrabold  leading-none sm:text-4xl lg:text-7xl text-center lg:text-left">
-                Borton Automotive Detailing LTD. 
-            </h2>
-            
-            <h1 class="pt-5 lg:text-xl text-center lg:text-left">
-                <!--  
-                    The finest automotive detailing in
-                     Boardman & surrounding areas.
-                     
-                  -->
-                Exceptional, Professional Service. Please give us a call at 330-506-7520 to learn how we can help!
-            </h1>
-            
-            <h2 class="py-5 mb-5 lg:text-xl text-center lg:text-left">
-            </h2>
-            
-            <div class="flex flex-col lg:flex-row flex-grow flex-col space-y-5 md:space-y-0 w-full lg:w-auto md:space-y-5 lg:space-y-0">
-                <div class=" w-full lg:w-auto">
-                
-  
-                </div>
 
-                <div id="cover-button" class="w-full lg:w-auto ">
-                    
+
+    
+    
+        
  
-    <div id="" class="flex text-center justify-center items-center  w-full lg:w-auto " x-data="{open: false}">
-        
-<button 
- id="" type="button" x-on:click.prevent="open = true" class=" 
-  w-full lg:w-auto 
-
-    inline-flex items-center justify-center h-24 px-6 lg:mr-6 tracking-wide transition duration-200 rounded-lg focus:shadow-outline focus:outline-none  bg-black text-white  hover:bg-red-500   hover:text-black  z-30">
-    <h5 class="text-3xl font-extrabold">Get a Quote</h5> 
-</button>
-
-        <div x-show.transition.opacity="open" class="transform-none p-4 fixed h-screen w-screen flex justify-center items-center bottom-0 right-0 bg-black bg-opacity-75 z-50">
-    <form x-on:click.away="open = false" x-show.transition="open" class=" text-black max-w-3xl max-h-full h-auto p-8 py-10 overflow-auto bg-white border-b-2 border-gray-300 rounded-lg shadow-2xl px-7 mt-16 md:mt-0 md:w-2/5 z-50">
-            <h3 class="mb-6 text-2xl font-medium text-black text-center">Get a Quote</h3>
-        <div class="block mb-4 border border-gray-200 rounded-lg">
-            <input type="text" name="first-name" id="1-first-name" class="block w-full px-4 py-3 border-2 border-transparent rounded-lg focus:border-blue-500 focus:outline-none" placeholder="First Name">
-        </div>
-        <div class="block mb-4 border border-gray-200 rounded-lg">
-            <input type="text" name="last-name" id="1-last-name" class="block w-full px-4 py-3 border-2 border-transparent rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Last Name">
-        </div>
-        <div class="block mb-4 border border-gray-200 rounded-lg">
-            <input type="text" name="phone-number" id="1-phone-number" class="block w-full px-4 py-3 border-2 border-transparent rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Phone Number">
-        </div>
-        <div class="block mb-4 border border-gray-200 rounded-lg">
-            <textarea name="message" cols="5" id="1-message" class="block w-full px-4 py-3 border-2 border-transparent rounded-lg focus:border-blue-500 focus:outline-none" placeholder="What is your message?"></textarea>
-        </div>
-        <div class="block">
-        <button type="button" 
-         
-        onclick= "send_sms(1, 'Borton-Automotive-Detailing-LTD')" 
-        class="w-full px-3 py-4 font-bold font-lg text-white  bg-black text-white  hover:bg-red-500   hover:text-black  rounded-lg">Send</button> 
-        </div>           
-
-    </form>
-</div>
-    </div>
- 
-                </div>
-
-                <div>
-                    
- 
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="relative order-first lg:order-last block lg:w-1/2 ">
-
     
-        
-            <img src="https://landing-page-app-hero-images.s3.amazonaws.com/media/1V6040RAVPODTVTYXOHQLLT0T46S9X0W4LBRONS8.gif"   alt = "Main hero image of Borton Automotive Detailing LTD. performing Automotive Detailing work"  class="object-cover w-full lg:absolute h-80 lg:h-full">
-            
-    
-    </div>
-
-
-        
-</section>
-    <section   id = "about" 
-class="flex flex-col flex-grow w-full overflow-hidden  lg:flex-row sm:mx-auto  bg-black text-white ">
-        <div class="relative lg:w-1/2">
-        
-            
-                <img src="https://landing-page-app-hero-images.s3.amazonaws.com/media/7I9SWDXBJLZRX55RBM8I60G7490OB3P2VK7VI1CG.gif"   alt="About Us Image"  class="object-cover w-full lg:absolute h-80 lg:h-full">
-            
-        
-           
-        </div>
-        <div class="py-5 lg:py-0 flex flex-col lg:py-32 lg:px-16 lg:w-1/2">
-            <div class="flex flex-col items-center lg:items-start w-full lg:max-w-lg">
-                <h5 class="mb-3 text-3xl font-extrabold leading-none sm:text-4xl lg:text-7xl">
-                    About Us
-                </h5>
-                <p class="py-5 px-5 lg:px-0 mb-5 text-center lg:text-left  lg:text-xl">
-                Welcome to Borton Automotive Detailing LTD! We are a veteran owned and operated automotive detailing company. We serve the Boardman, OH and surrounding areas and strive to give the best services for the best prices!<br><br>We have packages for all size vehicles and can work with you specifically for your needs. After hour drop offs are available and all veterans receive a 10% discount with proof of ID or DD-214. Your satisfaction guaranteed. <br><br>Give us a call at (330) 506-7520 for a free estimate today!
-                </p>                
-            </div>
-
-            <div class = "flex flex-row flex-wrap text-center w-full lg:max-w-lg">
-                
-                
-                
-    <div 
-      
-    class="pb-30 mx-auto w-1/3   text-red-500 " data-aos="fade-down" data-aos-delay="400" >
-        <span> <i class="fas fa-ambulance fa-2x "></i> </span>
-        <div class="mt-5 text-md font-bold uppercase ">
-            Emergency Services
-        </div>
-
-        
-        
-        <br>
-    </div>
-
-                
-    <div 
-      
-    class="pb-30 mx-auto w-1/3   text-red-500 " data-aos="fade-down" data-aos-delay="400" >
-        <span> <i class="fas fa-flag-usa fa-2x "></i> </span>
-        <div class="mt-5 text-md font-bold uppercase ">
-            Veteran Owned
-        </div>
-
-        
-        
-        <br>
-    </div>
-
-                
-    <div 
-      
-    class="pb-30 mx-auto w-1/3   text-red-500 " data-aos="fade-down" data-aos-delay="400" >
-        <span> <i class="fas fa-heart fa-2x "></i> </span>
-        <div class="mt-5 text-md font-bold uppercase ">
-            Family Owned
-        </div>
-
-        
-        
-        <br>
-    </div>
-
-                
-    <div 
-      
-    class="pb-30 mx-auto w-1/3   text-red-500 " data-aos="fade-down" data-aos-delay="400" >
-        <span> <i class="fas fa-home fa-2x "></i> </span>
-        <div class="mt-5 text-md font-bold uppercase ">
-            Locally Owned
-        </div>
-
-        
-        
-        <br>
-    </div>
-
-                
-                
-                
-            
-            </div>
-            
-                <div class = "mt-10 mb-0 flex flex-row justify-center lg:justify-start text-center w-full lg:max-w-lg">
-                
-                    <h2  class="mb-3 text-4xl justify-center lg:justify-start text-center lg:text-left text-black-900 font-extrabold leading-none tracking-wide text-center">
-                        Connect with us on Social
-                    </h2>
-                
-                </div>
-                <div class = "flex flex-row mb-5 justify-center space-x-3 md:space-x-8 lg:space-x-12 lg:flex-nowrap mt-4   w-full lg:max-w-lg">
-                    
-    <a 
-    target="_blank" 
-    href = "www.facebook.com/bortonautomotivedetailingltd/?ref=page_internal"> 
-        <span 
-             
-            class = " text-red-500 "> 
-            
-            <i class="fab fa-facebook fa-3x lg:fa-3x "></i>
-        </span> 
-    </a> 
-
-                    
-    <a 
-    target="_blank" 
-    href = "www.instagram.com/charlesborton/"> 
-        <span 
-             
-            class = " text-red-500 "> 
-            
-            <i class="fab fa-instagram fa-3x lg:fa-3x "></i>
-        </span> 
-    </a> 
-
-                    
-                    
-                    
-    <a 
-    target="_blank" 
-    href = "www.google.com/maps/place/borton+automotive+detailing+ltd/@40.9940731,-80.6379812,15z/data=!4m5!3m4!1s0x0:0xbb8faf3e7cc6d30b!8m2!3d40.9940731!4d-80.6379812"> 
-        <span 
-             
-            class = " text-red-500 "> 
-            
-            <i class="fab fa-google fa-3x lg:fa-3x "></i>
-        </span> 
-    </a> 
-
-                    
-                    
-                    
-                    
-                    
-                    
-                                  
-     
-
-               </div>
-            
-            
-        </div>
-        
-        
-
-
-    </section>
-    
-    
-    
-    <section   id= "services" class="lg:mt-0 relative w-full px-8 font-sans leading-6  bg-white text-black  border-solid ">
-        <div class="flex flex-col items-center max-w-6xl px-8 py-20 mx-auto leading-6 border-solid md:items-stretch md:justify-center md:py-24 ">
-            
-            <h2 class="mb-3 lg:pr-9 text-3xl mx-auto font-extrabold leading-none sm:text-4xl lg:text-7xl tracking-wide text-center">
-                Our Services
-            </h2>
-            <h2  class="w-full lg:pr-9 max-w-3xl mx-0 mx-auto mt-4 mb-0 font-sans text-sm font-medium leading-relaxed text-center text-red-500 border-0 border-black-200 lg:text-lg md:text-base">
-                What we are best at  - expert  automotive detailing 
-                
-            </h2>
-
-            <div class="grid grid-cols-3 gap-5 mt-10 sm:grid-cols-8 lg:grid-cols-12">
-
-                    
-                <div class="max-w-xs col-span-4 font-sans border-0 border-black-200 ">
-                    <div class="box-border flex flex-col items-center  h-full px-2 py-4 md:py-8 mx-4 leading-6 text-center border-solid ">
-                        
-                        <div  class="md:mt-6 font-sans text-center border-0 border-black-200 ">
-                            <h3  class="box-border text-xl font-bold leading-none tracking-wider border-solid  text-gray-800   ">Interior Detailing</h3>
-                            <p
-                                class="box-border mx-0 mt-3 mb-0 font-normal leading-snug text-center border-solid">
-                                We can help you clean your interiors to help remove stains, dirt, and other debris from daily use. Our interior cleaning includes cleaning and vacuuming of floor mats, dashboards, consoles, vents, steering wheels, and much more.
-                            </p>
-                        </div>
-                    </div>
-                </div>        
-                    
-                <div class="max-w-xs col-span-4 font-sans border-0 border-black-200 ">
-                    <div class="box-border flex flex-col items-center  h-full px-2 py-4 md:py-8 mx-4 leading-6 text-center border-solid ">
-                        
-                        <div  class="md:mt-6 font-sans text-center border-0 border-black-200 ">
-                            <h3  class="box-border text-xl font-bold leading-none tracking-wider border-solid  text-gray-800   ">Exterior Detailing</h3>
-                            <p
-                                class="box-border mx-0 mt-3 mb-0 font-normal leading-snug text-center border-solid">
-                                Keep your vehicle looking brand new with our exterior cleaning services. For our exterior cleaning, we include a foam cannon wash, bug and tar removal, wax (or sealant), wheels and tire cleaning, window and glass cleaning, and more.
-                            </p>
-                        </div>
-                    </div>
-                </div>        
-                    
-                <div class="max-w-xs col-span-4 font-sans border-0 border-black-200 ">
-                    <div class="box-border flex flex-col items-center  h-full px-2 py-4 md:py-8 mx-4 leading-6 text-center border-solid ">
-                        
-                        <div  class="md:mt-6 font-sans text-center border-0 border-black-200 ">
-                            <h3  class="box-border text-xl font-bold leading-none tracking-wider border-solid  text-gray-800   ">Maintenance Wash</h3>
-                            <p
-                                class="box-border mx-0 mt-3 mb-0 font-normal leading-snug text-center border-solid">
-                                Keep your vehicle looking brand new with our maintenance wash. Our experienced staff will arrive quickly and get the job done right, every time.
-                            </p>
-                        </div>
-                    </div>
-                </div>        
-                    
-                <div class="max-w-xs col-span-4 font-sans border-0 border-black-200 ">
-                    <div class="box-border flex flex-col items-center  h-full px-2 py-4 md:py-8 mx-4 leading-6 text-center border-solid ">
-                        
-                        <div  class="md:mt-6 font-sans text-center border-0 border-black-200 ">
-                            <h3  class="box-border text-xl font-bold leading-none tracking-wider border-solid  text-gray-800   ">Full Detail Service</h3>
-                            <p
-                                class="box-border mx-0 mt-3 mb-0 font-normal leading-snug text-center border-solid">
-                                For cars, trucks and other vehicles we offer full service detailing to make your vehicle look new again! Interior and exterior detailing available.
-                            </p>
-                        </div>
-                    </div>
-                </div>        
-                    
-                <div class="max-w-xs col-span-4 font-sans border-0 border-black-200 ">
-                    <div class="box-border flex flex-col items-center  h-full px-2 py-4 md:py-8 mx-4 leading-6 text-center border-solid ">
-                        
-                        <div  class="md:mt-6 font-sans text-center border-0 border-black-200 ">
-                            <h3  class="box-border text-xl font-bold leading-none tracking-wider border-solid  text-gray-800   ">Ceramic Coating</h3>
-                            <p
-                                class="box-border mx-0 mt-3 mb-0 font-normal leading-snug text-center border-solid">
-                                Innovative technology allows us to apply a 9H ceramic coating to help protect your vehicle from bird etchings, water spotting, and harsh environmental elements leaving a high gloss finish with unmatched water beading technology. Protect your investment and keep your vehicle looking better than when you bought it.
-                            </p>
-                        </div>
-                    </div>
-                </div>        
-                    
-                <div class="max-w-xs col-span-4 font-sans border-0 border-black-200 ">
-                    <div class="box-border flex flex-col items-center  h-full px-2 py-4 md:py-8 mx-4 leading-6 text-center border-solid ">
-                        
-                        <div  class="md:mt-6 font-sans text-center border-0 border-black-200 ">
-                            <h3  class="box-border text-xl font-bold leading-none tracking-wider border-solid  text-gray-800   ">Paint Protection</h3>
-                            <p
-                                class="box-border mx-0 mt-3 mb-0 font-normal leading-snug text-center border-solid">
-                                We can protect your vehicle's paint from everyday damages including scuffs, scratches, flying rocks, and more. We do this by applying a layer of clear Paint Protection Film on the exterior of your vehicle.
-                            </p>
-                        </div>
-                    </div>
-                </div>        
-            
-            </div>
-        </div>
-    </section>
-    
-    
-    
-    
-
-    <div id="our-work" class="relative mb-0 w-full pt-12 overflow-hidden   bg-black text-white  md:pt-20 xl:pt-20 xl:pb-20">
-        <div class="container relative flex flex-col justify-between h-full max-w-6xl px-10 mx-auto xl:px-0">
-            <h2 class="mb-3 text-3xl font-extrabold leading-none sm:text-4xl lg:text-7xl tracking-wide  text-center">A Glimpse of Our Passion</h2>
-            <h2 class="my-3 mb-10 text-xl font-medium  text-red-500  text-center">See why our customers love us</h2>
-            <div class="flex flex-wrap md:mx-4 md:mb-8 md:flex-row" x-data="{ open:false, activeSlide : 0, slides: [   [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/KDH6NLUVL86DRTV6XAGVJWGUK9PVJG612H5QLS5C.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/7T2RGAHOLF19S70E5MFFBR0TGSO64HDYIPIDRU0C.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/9WDKJDUJO9FH78AGWU5R3RFLP24MHN9H9BMTLCK2.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/B5AFSSETU558VEO8NMAZMERWP6S21I7MMGD5S35T.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/5TFFBWTCHB1WY0N816FVJDM4CAB2VGKMQ631NPN7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/XRVTV2ROHJP5DZSMO8074FTI5EKE8WWZOMI7I5DZ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/WHGQFZU8SIU9Y3K8IY34ZDPTS8V0EVU8KFZ04YG5.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/T0N9STTPYWN1KT8QTMAS86EU1BOODE5P8TN4Y8VG.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/RGTCACR7GFUW4WQ6XDF8QIMEX2OVVQCX3HHV097Z.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/ZRUJ5LGPI3FH2MD722KI6YKEVZSC2K4ISULQY5AO.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/WRDOBJAD7WAFYYG06F99S5CA0BPN0PVPOIE1HE63.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/7QXQHWLBLOB155WX3ZKMA1VKF9G8TBQAOGEFIMTS.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/KB1K5EY9LKU3JZIQ81RATXYKVKM2QGRRVAADB4IM.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/70O0P0GRF5OA3Z8XW3KQEU53Q2GVU7I8BZ9QHWUF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/LMHSCT0P399D6T1T8EMD0441OXJCUCM788MIFEZZ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/GQPVXTB17K69L84THT0FGDPU3V1RMK9YANE9G13R.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/DKZPTF5XFFPIL0IVQ1Z5BQ33RSW7ZLP4GO287WSM.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/O2N8Y9TF9ZBV74NMOJUB1VB97L61PSQ9UBOKSVAF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/ELQXVQ97750KUC0V18ZRTWS1B02EYNMUJYSPEZ6R.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/53L8MJNQGKEUBIENZ2M0EK3KO9FOWM11DDDR2ZCJ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TEF9HRSTF5KIREUL1JO2GGRRJQWMZQUR3DIWQBGN.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/KLRHPN5AANCVGO2DC82X5EHJAG8ADGJCFX108B9T.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/W0VLZIZUUP9ZPGN2KRW4CNQC9CK8Y5RS08PECKR6.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/F9S5D2QW2MR3GCPPZT3YKECFOT2MT3OEKMWUGAZR.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/OIYX6S37RBLRGAECNTQFRDAXVDOUVUJFS9OJR3UW.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/2SVVVYH0AKY4WT5FO0W0V967FMX6IVYHKVTBPT9E.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/8UM6NH7391705AEGP3A83LT1R57U6VN3B80CFLSL.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/C8JA8M2DLX1K6LCKGQFMC5RM17L2ECSYN0HLQ119.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/HN8HVLL1AXRN20WFQHZWM5FQF2WX5Q21K8QQ9VJM.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/FLQ5R6HMZVOU0SOX179QNCHDUD5TWK65Y9XFH2HF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/6IJ8D8PX1H6ETH7XSRL6VDZKG1DXLLGHCF9JC8J6.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/GZ82V54YPJJ0E0O6173Y4D6334LL28Q0I2JY30YN.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/OV841X8T642OH9QBMY6BAR4R8LEE24M91JTKAU0V.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/74OC1BVFEF78QFTQ357QT1OQ48XKKN0BSYE9CKD9.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/OI9KHQGSI9HU9H187N50C9T5UO7BFKO4IZC13G2Q.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/V2A2AJZHKEFUYSTMZZHKX97III21HLMNA66J3XJV.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/AWM2BN2EC58RN02STJ4SHDPGVMMQ4VEB2HCC2YS8.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/AOQT1JZ1RMW5755G7ZMXN1TMTE8QXUVZRVM4FFNJ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/RQQ2BOSD31M6CQ4ZFLESNHHRFOBBAFSLMBCULBEN.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/FXMHF6STJNAMNWO5H8E9G9KR0HN9ALTMC32MFF8N.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/2RWG3C6SYP6YEH1UECZ275U12B8R1RP18CNI334G.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/YTD3VZGMZPEAN289UXQYJWP3GY6U4JNO3Y3KK8MK.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/1M9FSE014S4YUBTJ7L2LI9LDVSP1N3Z9JM0XWVH4.jpeg', 'photo'],              [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/C2YQ2VLJLLQTUEP4FF4Q3HNDL6UXNHZDS507BD78.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/LQ9OPBE1GEL06WNYQO90FZN3SV187U0RCFPBWVA7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/0UC9TTGZ4I1BHSV5JHZHTHWISXJUKG8TY4AQD0TW.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/CNY9FVQSO4EXI3WRMLWAXINZ2EH0EOYC8VOLYRH9.jpeg', 'photo'],      [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/8V4KIQ6JLBCZ2R4F528UNB2CDMTF9AKHEVKHGZ7D.jpeg', 'photo'],      [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/DQX7R676FHVRJVL4OQSET7DGY9XXZ7HSCHRQ782P.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/IAR96N4HJP24W24I1RYVRJ63UWWSHXTSRKYXXGXW.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/48LFZ0VOMSRUMFAB453NKF2Z72WNJ0NTF1T2Z8IZ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TBOCGDPLFVEG0GVS6EDVM261GABJNG7I7K5C73EE.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/0DQVEIN6XCI5BAL4A4I84Y810OISZQ3U68R7IUQ2.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/3YP7KY0525GASF1R5VTLTHUEIX8LSUGIQ1I5Q6LB.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/2CMUSBBUW4QN6PLPS39H5SP58JVFJMOUDW2CYNBR.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TW3YO2SHLKAG2JREF10554CCDCSIFHHZ11KDGZIO.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/5D29B6JMK2XJ3G3XV3HUQXSF7KJ7MI6SCLUJ2VG7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/K3MDM4RN1X82GHWDOVDVAAWKWOBLOWGWOX1QLWN1.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/LA8DSWXEM4OFXHYD43IDEALBT1QCEYS6V6VPEWVP.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/8TUZTDFKF1WPD7DWMQ6WLIFWF6JUY7G6GRF77K1V.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/UB7361XIVLL9IDECI1U6CULZHR3BT4ZRG4R4TBJ2.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/P3YJEID2U8WCZSSMXOBH1NQKSEILI399Q5IC3A8F.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/BWRVJAU9Z2J3OYA17HSE7H9A9LPWRHOVGL3YDGJ3.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/S6BN9KSHIX8WPDSLC3KVSS6YJSITOOQRQFTBE1HQ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/4F2N6S2Q6N3XGE392QM9Y1JPT6DRFT0JLZY43FQJ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/GBGM7HEW9D84DMMI4NO1NYQ5MVCZ214GOQMZSOWF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/U1OKGPB8JU80F58LBMYYNDBQ168K1A7ZN38GBK2G.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/WV91TY2SJ2X5WGLV627GJGD94N0HQVR8NEKMRPEQ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TWHEG2IKRUFIIF0CTMLMGO86AOOKQNOI7H7V3W7Z.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/YRBYBJ1RXLG8DBWRQB41UV4YI9XTCHA24M5W045J.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/VWTEKRD88697C7JBVSE9AFH8ZILTXU4KFPH2Y8XY.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/R2UK9WVAL1UJH6JKEUGTUJQHFFFSLVP0WDRT40TA.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/H2ZWQJBLN3858V1PBPYNYRSPC35I1EDCYHDP9XE7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/PBOJC9YUVJB5SNDF0IOS77VVJ6ZI5UAPKU5F76QX.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/4QW2ZJHLF30PTGFJY2S6LMMRKZ44ZQS6SISHTNXR.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/88IRV038CZSWAOQ1LUJUJHU1T3V4M39TTO3R7OW1.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/91E6ES9FCSKJK6XHP64OCB3FG4WNLN6HE85BO3YS.jpeg', 'photo'],   ] }" @keydown.escape= "open = false"   >
-                <!-- <div class="flex flex-wrap md:mx-4 md:mb-8 md:flex-row" x-data="{ open:false, activeSlide : 0, slides: [   [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/KDH6NLUVL86DRTV6XAGVJWGUK9PVJG612H5QLS5C.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/7T2RGAHOLF19S70E5MFFBR0TGSO64HDYIPIDRU0C.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/9WDKJDUJO9FH78AGWU5R3RFLP24MHN9H9BMTLCK2.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/B5AFSSETU558VEO8NMAZMERWP6S21I7MMGD5S35T.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/5TFFBWTCHB1WY0N816FVJDM4CAB2VGKMQ631NPN7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/XRVTV2ROHJP5DZSMO8074FTI5EKE8WWZOMI7I5DZ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/WHGQFZU8SIU9Y3K8IY34ZDPTS8V0EVU8KFZ04YG5.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/T0N9STTPYWN1KT8QTMAS86EU1BOODE5P8TN4Y8VG.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/RGTCACR7GFUW4WQ6XDF8QIMEX2OVVQCX3HHV097Z.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/ZRUJ5LGPI3FH2MD722KI6YKEVZSC2K4ISULQY5AO.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/WRDOBJAD7WAFYYG06F99S5CA0BPN0PVPOIE1HE63.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/7QXQHWLBLOB155WX3ZKMA1VKF9G8TBQAOGEFIMTS.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/KB1K5EY9LKU3JZIQ81RATXYKVKM2QGRRVAADB4IM.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/70O0P0GRF5OA3Z8XW3KQEU53Q2GVU7I8BZ9QHWUF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/LMHSCT0P399D6T1T8EMD0441OXJCUCM788MIFEZZ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/GQPVXTB17K69L84THT0FGDPU3V1RMK9YANE9G13R.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/DKZPTF5XFFPIL0IVQ1Z5BQ33RSW7ZLP4GO287WSM.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/O2N8Y9TF9ZBV74NMOJUB1VB97L61PSQ9UBOKSVAF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/ELQXVQ97750KUC0V18ZRTWS1B02EYNMUJYSPEZ6R.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/53L8MJNQGKEUBIENZ2M0EK3KO9FOWM11DDDR2ZCJ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/TEF9HRSTF5KIREUL1JO2GGRRJQWMZQUR3DIWQBGN.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/KLRHPN5AANCVGO2DC82X5EHJAG8ADGJCFX108B9T.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/W0VLZIZUUP9ZPGN2KRW4CNQC9CK8Y5RS08PECKR6.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/F9S5D2QW2MR3GCPPZT3YKECFOT2MT3OEKMWUGAZR.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/OIYX6S37RBLRGAECNTQFRDAXVDOUVUJFS9OJR3UW.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/2SVVVYH0AKY4WT5FO0W0V967FMX6IVYHKVTBPT9E.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/8UM6NH7391705AEGP3A83LT1R57U6VN3B80CFLSL.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/C8JA8M2DLX1K6LCKGQFMC5RM17L2ECSYN0HLQ119.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/HN8HVLL1AXRN20WFQHZWM5FQF2WX5Q21K8QQ9VJM.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/FLQ5R6HMZVOU0SOX179QNCHDUD5TWK65Y9XFH2HF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/6IJ8D8PX1H6ETH7XSRL6VDZKG1DXLLGHCF9JC8J6.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/GZ82V54YPJJ0E0O6173Y4D6334LL28Q0I2JY30YN.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/OV841X8T642OH9QBMY6BAR4R8LEE24M91JTKAU0V.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/74OC1BVFEF78QFTQ357QT1OQ48XKKN0BSYE9CKD9.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/OI9KHQGSI9HU9H187N50C9T5UO7BFKO4IZC13G2Q.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/V2A2AJZHKEFUYSTMZZHKX97III21HLMNA66J3XJV.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/AWM2BN2EC58RN02STJ4SHDPGVMMQ4VEB2HCC2YS8.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/AOQT1JZ1RMW5755G7ZMXN1TMTE8QXUVZRVM4FFNJ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/RQQ2BOSD31M6CQ4ZFLESNHHRFOBBAFSLMBCULBEN.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/FXMHF6STJNAMNWO5H8E9G9KR0HN9ALTMC32MFF8N.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/2RWG3C6SYP6YEH1UECZ275U12B8R1RP18CNI334G.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/YTD3VZGMZPEAN289UXQYJWP3GY6U4JNO3Y3KK8MK.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/1M9FSE014S4YUBTJ7L2LI9LDVSP1N3Z9JM0XWVH4.jpeg', 'photo'],              [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/C2YQ2VLJLLQTUEP4FF4Q3HNDL6UXNHZDS507BD78.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/LQ9OPBE1GEL06WNYQO90FZN3SV187U0RCFPBWVA7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/0UC9TTGZ4I1BHSV5JHZHTHWISXJUKG8TY4AQD0TW.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/CNY9FVQSO4EXI3WRMLWAXINZ2EH0EOYC8VOLYRH9.jpeg', 'photo'],      [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/8V4KIQ6JLBCZ2R4F528UNB2CDMTF9AKHEVKHGZ7D.jpeg', 'photo'],      [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/DQX7R676FHVRJVL4OQSET7DGY9XXZ7HSCHRQ782P.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/IAR96N4HJP24W24I1RYVRJ63UWWSHXTSRKYXXGXW.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/48LFZ0VOMSRUMFAB453NKF2Z72WNJ0NTF1T2Z8IZ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/TBOCGDPLFVEG0GVS6EDVM261GABJNG7I7K5C73EE.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/0DQVEIN6XCI5BAL4A4I84Y810OISZQ3U68R7IUQ2.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/3YP7KY0525GASF1R5VTLTHUEIX8LSUGIQ1I5Q6LB.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/2CMUSBBUW4QN6PLPS39H5SP58JVFJMOUDW2CYNBR.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/TW3YO2SHLKAG2JREF10554CCDCSIFHHZ11KDGZIO.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/5D29B6JMK2XJ3G3XV3HUQXSF7KJ7MI6SCLUJ2VG7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/K3MDM4RN1X82GHWDOVDVAAWKWOBLOWGWOX1QLWN1.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/LA8DSWXEM4OFXHYD43IDEALBT1QCEYS6V6VPEWVP.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/8TUZTDFKF1WPD7DWMQ6WLIFWF6JUY7G6GRF77K1V.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/UB7361XIVLL9IDECI1U6CULZHR3BT4ZRG4R4TBJ2.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/P3YJEID2U8WCZSSMXOBH1NQKSEILI399Q5IC3A8F.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/BWRVJAU9Z2J3OYA17HSE7H9A9LPWRHOVGL3YDGJ3.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/S6BN9KSHIX8WPDSLC3KVSS6YJSITOOQRQFTBE1HQ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/4F2N6S2Q6N3XGE392QM9Y1JPT6DRFT0JLZY43FQJ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/GBGM7HEW9D84DMMI4NO1NYQ5MVCZ214GOQMZSOWF.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/U1OKGPB8JU80F58LBMYYNDBQ168K1A7ZN38GBK2G.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/WV91TY2SJ2X5WGLV627GJGD94N0HQVR8NEKMRPEQ.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/TWHEG2IKRUFIIF0CTMLMGO86AOOKQNOI7H7V3W7Z.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/YRBYBJ1RXLG8DBWRQB41UV4YI9XTCHA24M5W045J.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/VWTEKRD88697C7JBVSE9AFH8ZILTXU4KFPH2Y8XY.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/R2UK9WVAL1UJH6JKEUGTUJQHFFFSLVP0WDRT40TA.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/H2ZWQJBLN3858V1PBPYNYRSPC35I1EDCYHDP9XE7.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/PBOJC9YUVJB5SNDF0IOS77VVJ6ZI5UAPKU5F76QX.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/4QW2ZJHLF30PTGFJY2S6LMMRKZ44ZQS6SISHTNXR.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/88IRV038CZSWAOQ1LUJUJHU1T3V4M39TTO3R7OW1.jpeg', 'photo'],    [ 'https://d3p2r6ofnvoe67.cloudfront.net/fit-in/1026x720/media/91E6ES9FCSKJK6XHP64OCB3FG4WNLN6HE85BO3YS.jpeg', 'photo'],   ] }" @keydown.escape= "open = false"   > -->
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 0; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/KDH6NLUVL86DRTV6XAGVJWGUK9PVJG612H5QLS5C.jpeg"  alt = "Photo number 59 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 0; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/KDH6NLUVL86DRTV6XAGVJWGUK9PVJG612H5QLS5C.jpeg"  alt = "Photo number 59 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 1; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/7T2RGAHOLF19S70E5MFFBR0TGSO64HDYIPIDRU0C.jpeg"  alt = "Photo number 3 of Borton Automotive Detailing LTD.&#x27;s best work performing a Exterior Detailing job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 1; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/7T2RGAHOLF19S70E5MFFBR0TGSO64HDYIPIDRU0C.jpeg"  alt = "Photo number 3 of Borton Automotive Detailing LTD.&#x27;s best work performing a Exterior Detailing job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 2; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/9WDKJDUJO9FH78AGWU5R3RFLP24MHN9H9BMTLCK2.jpeg"  alt = "Photo number 1 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 2; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/9WDKJDUJO9FH78AGWU5R3RFLP24MHN9H9BMTLCK2.jpeg"  alt = "Photo number 1 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 3; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/B5AFSSETU558VEO8NMAZMERWP6S21I7MMGD5S35T.jpeg"  alt = "Photo number 68 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 3; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/B5AFSSETU558VEO8NMAZMERWP6S21I7MMGD5S35T.jpeg"  alt = "Photo number 68 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 4; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/5TFFBWTCHB1WY0N816FVJDM4CAB2VGKMQ631NPN7.jpeg"  alt = "Photo number 21 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 4; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/5TFFBWTCHB1WY0N816FVJDM4CAB2VGKMQ631NPN7.jpeg"  alt = "Photo number 21 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 5; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/XRVTV2ROHJP5DZSMO8074FTI5EKE8WWZOMI7I5DZ.jpeg"  alt = "Photo number 2 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 5; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/XRVTV2ROHJP5DZSMO8074FTI5EKE8WWZOMI7I5DZ.jpeg"  alt = "Photo number 2 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 6; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/WHGQFZU8SIU9Y3K8IY34ZDPTS8V0EVU8KFZ04YG5.jpeg"  alt = "Photo number 22 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 6; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/WHGQFZU8SIU9Y3K8IY34ZDPTS8V0EVU8KFZ04YG5.jpeg"  alt = "Photo number 22 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 7; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/T0N9STTPYWN1KT8QTMAS86EU1BOODE5P8TN4Y8VG.jpeg"  alt = "Photo number 4 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 7; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/T0N9STTPYWN1KT8QTMAS86EU1BOODE5P8TN4Y8VG.jpeg"  alt = "Photo number 4 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 8; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/RGTCACR7GFUW4WQ6XDF8QIMEX2OVVQCX3HHV097Z.jpeg"  alt = "Photo number 35 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 8; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/RGTCACR7GFUW4WQ6XDF8QIMEX2OVVQCX3HHV097Z.jpeg"  alt = "Photo number 35 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 9; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/ZRUJ5LGPI3FH2MD722KI6YKEVZSC2K4ISULQY5AO.jpeg"  alt = "Photo number 36 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 9; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/ZRUJ5LGPI3FH2MD722KI6YKEVZSC2K4ISULQY5AO.jpeg"  alt = "Photo number 36 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 10; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/WRDOBJAD7WAFYYG06F99S5CA0BPN0PVPOIE1HE63.jpeg"  alt = "Photo number 5 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 10; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/WRDOBJAD7WAFYYG06F99S5CA0BPN0PVPOIE1HE63.jpeg"  alt = "Photo number 5 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 11; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/7QXQHWLBLOB155WX3ZKMA1VKF9G8TBQAOGEFIMTS.jpeg"  alt = "Photo number 6 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 11; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/7QXQHWLBLOB155WX3ZKMA1VKF9G8TBQAOGEFIMTS.jpeg"  alt = "Photo number 6 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 12; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/KB1K5EY9LKU3JZIQ81RATXYKVKM2QGRRVAADB4IM.jpeg"  alt = "Photo number 7 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 12; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/KB1K5EY9LKU3JZIQ81RATXYKVKM2QGRRVAADB4IM.jpeg"  alt = "Photo number 7 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 13; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/70O0P0GRF5OA3Z8XW3KQEU53Q2GVU7I8BZ9QHWUF.jpeg"  alt = "Photo number 8 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 13; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/70O0P0GRF5OA3Z8XW3KQEU53Q2GVU7I8BZ9QHWUF.jpeg"  alt = "Photo number 8 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 14; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/LMHSCT0P399D6T1T8EMD0441OXJCUCM788MIFEZZ.jpeg"  alt = "Photo number 9 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 14; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/LMHSCT0P399D6T1T8EMD0441OXJCUCM788MIFEZZ.jpeg"  alt = "Photo number 9 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 15; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/GQPVXTB17K69L84THT0FGDPU3V1RMK9YANE9G13R.jpeg"  alt = "Photo number 10 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 15; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/GQPVXTB17K69L84THT0FGDPU3V1RMK9YANE9G13R.jpeg"  alt = "Photo number 10 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 16; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/DKZPTF5XFFPIL0IVQ1Z5BQ33RSW7ZLP4GO287WSM.jpeg"  alt = "Photo number 11 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 16; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/DKZPTF5XFFPIL0IVQ1Z5BQ33RSW7ZLP4GO287WSM.jpeg"  alt = "Photo number 11 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 17; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/O2N8Y9TF9ZBV74NMOJUB1VB97L61PSQ9UBOKSVAF.jpeg"  alt = "Photo number 12 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 17; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/O2N8Y9TF9ZBV74NMOJUB1VB97L61PSQ9UBOKSVAF.jpeg"  alt = "Photo number 12 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 18; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/ELQXVQ97750KUC0V18ZRTWS1B02EYNMUJYSPEZ6R.jpeg"  alt = "Photo number 13 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 18; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/ELQXVQ97750KUC0V18ZRTWS1B02EYNMUJYSPEZ6R.jpeg"  alt = "Photo number 13 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 19; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/53L8MJNQGKEUBIENZ2M0EK3KO9FOWM11DDDR2ZCJ.jpeg"  alt = "Photo number 14 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 19; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/53L8MJNQGKEUBIENZ2M0EK3KO9FOWM11DDDR2ZCJ.jpeg"  alt = "Photo number 14 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 20; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TEF9HRSTF5KIREUL1JO2GGRRJQWMZQUR3DIWQBGN.jpeg"  alt = "Photo number 15 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 20; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/TEF9HRSTF5KIREUL1JO2GGRRJQWMZQUR3DIWQBGN.jpeg"  alt = "Photo number 15 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 21; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/KLRHPN5AANCVGO2DC82X5EHJAG8ADGJCFX108B9T.jpeg"  alt = "Photo number 16 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 21; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/KLRHPN5AANCVGO2DC82X5EHJAG8ADGJCFX108B9T.jpeg"  alt = "Photo number 16 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 22; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/W0VLZIZUUP9ZPGN2KRW4CNQC9CK8Y5RS08PECKR6.jpeg"  alt = "Photo number 17 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 22; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/W0VLZIZUUP9ZPGN2KRW4CNQC9CK8Y5RS08PECKR6.jpeg"  alt = "Photo number 17 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 23; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/F9S5D2QW2MR3GCPPZT3YKECFOT2MT3OEKMWUGAZR.jpeg"  alt = "Photo number 18 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 23; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/F9S5D2QW2MR3GCPPZT3YKECFOT2MT3OEKMWUGAZR.jpeg"  alt = "Photo number 18 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 24; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/OIYX6S37RBLRGAECNTQFRDAXVDOUVUJFS9OJR3UW.jpeg"  alt = "Photo number 19 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 24; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/OIYX6S37RBLRGAECNTQFRDAXVDOUVUJFS9OJR3UW.jpeg"  alt = "Photo number 19 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 25; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/2SVVVYH0AKY4WT5FO0W0V967FMX6IVYHKVTBPT9E.jpeg"  alt = "Photo number 20 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 25; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/2SVVVYH0AKY4WT5FO0W0V967FMX6IVYHKVTBPT9E.jpeg"  alt = "Photo number 20 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 26; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/8UM6NH7391705AEGP3A83LT1R57U6VN3B80CFLSL.jpeg"  alt = "Photo number 23 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 26; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/8UM6NH7391705AEGP3A83LT1R57U6VN3B80CFLSL.jpeg"  alt = "Photo number 23 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 27; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/C8JA8M2DLX1K6LCKGQFMC5RM17L2ECSYN0HLQ119.jpeg"  alt = "Photo number 24 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 27; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/C8JA8M2DLX1K6LCKGQFMC5RM17L2ECSYN0HLQ119.jpeg"  alt = "Photo number 24 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 28; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/HN8HVLL1AXRN20WFQHZWM5FQF2WX5Q21K8QQ9VJM.jpeg"  alt = "Photo number 25 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 28; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/HN8HVLL1AXRN20WFQHZWM5FQF2WX5Q21K8QQ9VJM.jpeg"  alt = "Photo number 25 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 29; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/FLQ5R6HMZVOU0SOX179QNCHDUD5TWK65Y9XFH2HF.jpeg"  alt = "Photo number 26 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 29; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/FLQ5R6HMZVOU0SOX179QNCHDUD5TWK65Y9XFH2HF.jpeg"  alt = "Photo number 26 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 30; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/6IJ8D8PX1H6ETH7XSRL6VDZKG1DXLLGHCF9JC8J6.jpeg"  alt = "Photo number 27 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 30; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/6IJ8D8PX1H6ETH7XSRL6VDZKG1DXLLGHCF9JC8J6.jpeg"  alt = "Photo number 27 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 31; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/GZ82V54YPJJ0E0O6173Y4D6334LL28Q0I2JY30YN.jpeg"  alt = "Photo number 28 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 31; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/GZ82V54YPJJ0E0O6173Y4D6334LL28Q0I2JY30YN.jpeg"  alt = "Photo number 28 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 32; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/OV841X8T642OH9QBMY6BAR4R8LEE24M91JTKAU0V.jpeg"  alt = "Photo number 29 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 32; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/OV841X8T642OH9QBMY6BAR4R8LEE24M91JTKAU0V.jpeg"  alt = "Photo number 29 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 33; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/74OC1BVFEF78QFTQ357QT1OQ48XKKN0BSYE9CKD9.jpeg"  alt = "Photo number 30 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 33; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/74OC1BVFEF78QFTQ357QT1OQ48XKKN0BSYE9CKD9.jpeg"  alt = "Photo number 30 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 34; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/OI9KHQGSI9HU9H187N50C9T5UO7BFKO4IZC13G2Q.jpeg"  alt = "Photo number 31 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 34; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/OI9KHQGSI9HU9H187N50C9T5UO7BFKO4IZC13G2Q.jpeg"  alt = "Photo number 31 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 35; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/V2A2AJZHKEFUYSTMZZHKX97III21HLMNA66J3XJV.jpeg"  alt = "Photo number 32 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 35; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/V2A2AJZHKEFUYSTMZZHKX97III21HLMNA66J3XJV.jpeg"  alt = "Photo number 32 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 36; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/AWM2BN2EC58RN02STJ4SHDPGVMMQ4VEB2HCC2YS8.jpeg"  alt = "Photo number 33 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 36; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/AWM2BN2EC58RN02STJ4SHDPGVMMQ4VEB2HCC2YS8.jpeg"  alt = "Photo number 33 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 37; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/AOQT1JZ1RMW5755G7ZMXN1TMTE8QXUVZRVM4FFNJ.jpeg"  alt = "Photo number 34 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 37; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/AOQT1JZ1RMW5755G7ZMXN1TMTE8QXUVZRVM4FFNJ.jpeg"  alt = "Photo number 34 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 38; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/RQQ2BOSD31M6CQ4ZFLESNHHRFOBBAFSLMBCULBEN.jpeg"  alt = "Photo number 37 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 38; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/RQQ2BOSD31M6CQ4ZFLESNHHRFOBBAFSLMBCULBEN.jpeg"  alt = "Photo number 37 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 39; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/FXMHF6STJNAMNWO5H8E9G9KR0HN9ALTMC32MFF8N.jpeg"  alt = "Photo number 38 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 39; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/FXMHF6STJNAMNWO5H8E9G9KR0HN9ALTMC32MFF8N.jpeg"  alt = "Photo number 38 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 40; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/2RWG3C6SYP6YEH1UECZ275U12B8R1RP18CNI334G.jpeg"  alt = "Photo number 39 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 40; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/2RWG3C6SYP6YEH1UECZ275U12B8R1RP18CNI334G.jpeg"  alt = "Photo number 39 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 41; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/YTD3VZGMZPEAN289UXQYJWP3GY6U4JNO3Y3KK8MK.jpeg"  alt = "Photo number 40 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 41; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/YTD3VZGMZPEAN289UXQYJWP3GY6U4JNO3Y3KK8MK.jpeg"  alt = "Photo number 40 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 42; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/1M9FSE014S4YUBTJ7L2LI9LDVSP1N3Z9JM0XWVH4.jpeg"  alt = "Photo number 41 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 42; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/1M9FSE014S4YUBTJ7L2LI9LDVSP1N3Z9JM0XWVH4.jpeg"  alt = "Photo number 41 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                    
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-cover w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/32JY38JUZHEAVLJQGI9929DZILL5UUK2ESROWOMM.mp4#t=0.5" >
-                            </video>
-                        </div>
-                    
-                                    
-                    
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-cover w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/JM15BV75GW858DKLH8QCYAGGLVDGSCMS4T6OAYBN.mp4#t=0.5" >
-                            </video>
-                        </div>
-                    
-                                    
-                    
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-cover w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/JEJWQBABMTVFNZSD6O5PMFLNQWJN15MZ6NL7BROR.mp4#t=0.5" >
-                            </video>
-                        </div>
-                    
-                                    
-                    
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-cover w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/943LDG6YFWXPU43XL9FUXSG43CGJ1YENOAG57I4G.mp4#t=0.5" >
-                            </video>
-                        </div>
-                    
-                                    
-                    
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-cover w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/URI3HLSC1Z3SLU2DUTU6GVNO6K9664OMZV6QLTUI.mp4#t=0.5" >
-                            </video>
-                        </div>
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 48; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/C2YQ2VLJLLQTUEP4FF4Q3HNDL6UXNHZDS507BD78.jpeg"  alt = "Photo number 47 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 48; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/C2YQ2VLJLLQTUEP4FF4Q3HNDL6UXNHZDS507BD78.jpeg"  alt = "Photo number 47 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 49; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/LQ9OPBE1GEL06WNYQO90FZN3SV187U0RCFPBWVA7.jpeg"  alt = "Photo number 48 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 49; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/LQ9OPBE1GEL06WNYQO90FZN3SV187U0RCFPBWVA7.jpeg"  alt = "Photo number 48 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 50; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/0UC9TTGZ4I1BHSV5JHZHTHWISXJUKG8TY4AQD0TW.jpeg"  alt = "Photo number 49 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 50; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/0UC9TTGZ4I1BHSV5JHZHTHWISXJUKG8TY4AQD0TW.jpeg"  alt = "Photo number 49 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 51; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/CNY9FVQSO4EXI3WRMLWAXINZ2EH0EOYC8VOLYRH9.jpeg"  alt = "Photo number 51 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 51; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/CNY9FVQSO4EXI3WRMLWAXINZ2EH0EOYC8VOLYRH9.jpeg"  alt = "Photo number 51 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                    
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-cover w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/KRIFODWEY0SA3PZ0U1OLFDAGZXSKRVM17F5PXWLF.mp4#t=0.5" >
-                            </video>
-                        </div>
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 53; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/8V4KIQ6JLBCZ2R4F528UNB2CDMTF9AKHEVKHGZ7D.jpeg"  alt = "Photo number 52 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 53; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/8V4KIQ6JLBCZ2R4F528UNB2CDMTF9AKHEVKHGZ7D.jpeg"  alt = "Photo number 52 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                    
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-cover w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/IKF3URH7QFGY8PKK6ZM850NPNH1R57QKVP60730B.mp4#t=0.5" >
-                            </video>
-                        </div>
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 55; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/DQX7R676FHVRJVL4OQSET7DGY9XXZ7HSCHRQ782P.jpeg"  alt = "Photo number 55 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 55; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/DQX7R676FHVRJVL4OQSET7DGY9XXZ7HSCHRQ782P.jpeg"  alt = "Photo number 55 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 56; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/IAR96N4HJP24W24I1RYVRJ63UWWSHXTSRKYXXGXW.jpeg"  alt = "Photo number 56 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 56; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/IAR96N4HJP24W24I1RYVRJ63UWWSHXTSRKYXXGXW.jpeg"  alt = "Photo number 56 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 57; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/48LFZ0VOMSRUMFAB453NKF2Z72WNJ0NTF1T2Z8IZ.jpeg"  alt = "Photo number 57 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 57; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/48LFZ0VOMSRUMFAB453NKF2Z72WNJ0NTF1T2Z8IZ.jpeg"  alt = "Photo number 57 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 58; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TBOCGDPLFVEG0GVS6EDVM261GABJNG7I7K5C73EE.jpeg"  alt = "Photo number 58 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 58; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/TBOCGDPLFVEG0GVS6EDVM261GABJNG7I7K5C73EE.jpeg"  alt = "Photo number 58 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 59; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/0DQVEIN6XCI5BAL4A4I84Y810OISZQ3U68R7IUQ2.jpeg"  alt = "Photo number 60 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 59; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/0DQVEIN6XCI5BAL4A4I84Y810OISZQ3U68R7IUQ2.jpeg"  alt = "Photo number 60 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 60; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/3YP7KY0525GASF1R5VTLTHUEIX8LSUGIQ1I5Q6LB.jpeg"  alt = "Photo number 61 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 60; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/3YP7KY0525GASF1R5VTLTHUEIX8LSUGIQ1I5Q6LB.jpeg"  alt = "Photo number 61 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 61; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/2CMUSBBUW4QN6PLPS39H5SP58JVFJMOUDW2CYNBR.jpeg"  alt = "Photo number 62 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 61; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/2CMUSBBUW4QN6PLPS39H5SP58JVFJMOUDW2CYNBR.jpeg"  alt = "Photo number 62 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 62; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TW3YO2SHLKAG2JREF10554CCDCSIFHHZ11KDGZIO.jpeg"  alt = "Photo number 63 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 62; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/TW3YO2SHLKAG2JREF10554CCDCSIFHHZ11KDGZIO.jpeg"  alt = "Photo number 63 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 63; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/5D29B6JMK2XJ3G3XV3HUQXSF7KJ7MI6SCLUJ2VG7.jpeg"  alt = "Photo number 64 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 63; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/5D29B6JMK2XJ3G3XV3HUQXSF7KJ7MI6SCLUJ2VG7.jpeg"  alt = "Photo number 64 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 64; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/K3MDM4RN1X82GHWDOVDVAAWKWOBLOWGWOX1QLWN1.jpeg"  alt = "Photo number 65 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 64; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/K3MDM4RN1X82GHWDOVDVAAWKWOBLOWGWOX1QLWN1.jpeg"  alt = "Photo number 65 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 65; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/LA8DSWXEM4OFXHYD43IDEALBT1QCEYS6V6VPEWVP.jpeg"  alt = "Photo number 66 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 65; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/LA8DSWXEM4OFXHYD43IDEALBT1QCEYS6V6VPEWVP.jpeg"  alt = "Photo number 66 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 66; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/8TUZTDFKF1WPD7DWMQ6WLIFWF6JUY7G6GRF77K1V.jpeg"  alt = "Photo number 67 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 66; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/8TUZTDFKF1WPD7DWMQ6WLIFWF6JUY7G6GRF77K1V.jpeg"  alt = "Photo number 67 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 67; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/UB7361XIVLL9IDECI1U6CULZHR3BT4ZRG4R4TBJ2.jpeg"  alt = "Photo number 68 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 67; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/UB7361XIVLL9IDECI1U6CULZHR3BT4ZRG4R4TBJ2.jpeg"  alt = "Photo number 68 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 68; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/P3YJEID2U8WCZSSMXOBH1NQKSEILI399Q5IC3A8F.jpeg"  alt = "Photo number 69 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 68; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/P3YJEID2U8WCZSSMXOBH1NQKSEILI399Q5IC3A8F.jpeg"  alt = "Photo number 69 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 69; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/BWRVJAU9Z2J3OYA17HSE7H9A9LPWRHOVGL3YDGJ3.jpeg"  alt = "Photo number 70 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 69; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/BWRVJAU9Z2J3OYA17HSE7H9A9LPWRHOVGL3YDGJ3.jpeg"  alt = "Photo number 70 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 70; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/S6BN9KSHIX8WPDSLC3KVSS6YJSITOOQRQFTBE1HQ.jpeg"  alt = "Photo number 71 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 70; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/S6BN9KSHIX8WPDSLC3KVSS6YJSITOOQRQFTBE1HQ.jpeg"  alt = "Photo number 71 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 71; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/4F2N6S2Q6N3XGE392QM9Y1JPT6DRFT0JLZY43FQJ.jpeg"  alt = "Photo number 72 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 71; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/4F2N6S2Q6N3XGE392QM9Y1JPT6DRFT0JLZY43FQJ.jpeg"  alt = "Photo number 72 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 72; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/GBGM7HEW9D84DMMI4NO1NYQ5MVCZ214GOQMZSOWF.jpeg"  alt = "Photo number 73 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 72; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/GBGM7HEW9D84DMMI4NO1NYQ5MVCZ214GOQMZSOWF.jpeg"  alt = "Photo number 73 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 73; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/U1OKGPB8JU80F58LBMYYNDBQ168K1A7ZN38GBK2G.jpeg"  alt = "Photo number 74 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 73; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/U1OKGPB8JU80F58LBMYYNDBQ168K1A7ZN38GBK2G.jpeg"  alt = "Photo number 74 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 74; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/WV91TY2SJ2X5WGLV627GJGD94N0HQVR8NEKMRPEQ.jpeg"  alt = "Photo number 75 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 74; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/WV91TY2SJ2X5WGLV627GJGD94N0HQVR8NEKMRPEQ.jpeg"  alt = "Photo number 75 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 75; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/TWHEG2IKRUFIIF0CTMLMGO86AOOKQNOI7H7V3W7Z.jpeg"  alt = "Photo number 76 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 75; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/TWHEG2IKRUFIIF0CTMLMGO86AOOKQNOI7H7V3W7Z.jpeg"  alt = "Photo number 76 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 76; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/YRBYBJ1RXLG8DBWRQB41UV4YI9XTCHA24M5W045J.jpeg"  alt = "Photo number 78 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 76; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/YRBYBJ1RXLG8DBWRQB41UV4YI9XTCHA24M5W045J.jpeg"  alt = "Photo number 78 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 77; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/VWTEKRD88697C7JBVSE9AFH8ZILTXU4KFPH2Y8XY.jpeg"  alt = "Photo number 79 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 77; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/VWTEKRD88697C7JBVSE9AFH8ZILTXU4KFPH2Y8XY.jpeg"  alt = "Photo number 79 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 78; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/R2UK9WVAL1UJH6JKEUGTUJQHFFFSLVP0WDRT40TA.jpeg"  alt = "Photo number 80 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 78; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/R2UK9WVAL1UJH6JKEUGTUJQHFFFSLVP0WDRT40TA.jpeg"  alt = "Photo number 80 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 79; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/H2ZWQJBLN3858V1PBPYNYRSPC35I1EDCYHDP9XE7.jpeg"  alt = "Photo number 81 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 79; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/H2ZWQJBLN3858V1PBPYNYRSPC35I1EDCYHDP9XE7.jpeg"  alt = "Photo number 81 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 80; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/PBOJC9YUVJB5SNDF0IOS77VVJ6ZI5UAPKU5F76QX.jpeg"  alt = "Photo number 82 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 80; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/PBOJC9YUVJB5SNDF0IOS77VVJ6ZI5UAPKU5F76QX.jpeg"  alt = "Photo number 82 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 81; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/4QW2ZJHLF30PTGFJY2S6LMMRKZ44ZQS6SISHTNXR.jpeg"  alt = "Photo number 83 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 81; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/4QW2ZJHLF30PTGFJY2S6LMMRKZ44ZQS6SISHTNXR.jpeg"  alt = "Photo number 83 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 82; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/88IRV038CZSWAOQ1LUJUJHU1T3V4M39TTO3R7OW1.jpeg"  alt = "Photo number 84 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 82; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/88IRV038CZSWAOQ1LUJUJHU1T3V4M39TTO3R7OW1.jpeg"  alt = "Photo number 84 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                                    
-                        
-                        <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 83; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/91E6ES9FCSKJK6XHP64OCB3FG4WNLN6HE85BO3YS.jpeg"  alt = "Photo number 85 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div>
-                        <!-- <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40" @click="activeSlide = 83; open = true; " ><img class="rounded shadow-md object-cover w-full h-60" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/91E6ES9FCSKJK6XHP64OCB3FG4WNLN6HE85BO3YS.jpeg"  alt = "Photo number 85 of Borton Automotive Detailing LTD.&#x27;s best work performing a null job"   loading="lazy" ></div> -->
-                    
-                 
-                                    
-        
-                <div class="z-50 fixed top-0 left-0 w-full h-full flex items-center justify-center" x-show.transition="open" >
-
-
-                
-                
-                    <div class="flex items-center justify-start w-12  ml-6 md:m-2 z-50 absolute bottom-1/4 md:bottom-0 transform translate-x-12 md:translate-x-32" >
-                    <button
-                    
-                            class="text-white w-12 h-12 rounded-full flex items-center justify-center focus:outline-none bg-red-500"                                
-                            @click="open = false">
-                         <span class = "text-white"> <i class="fas fa-lg fa-times"></i> </span>
-                    </button>
-                    </div>
-
-                    <div class= "h-90 w-90 flex items-center justify-center overflow-hidden">
-
-                        <template  x-for="(slide, index, collection) in slides" :key="index">
-                            <div class="h-full w-full flex items-center justify-center absolute">
-                                <div class="absolute top-0 bottom-0 py-2  px-2 flex flex-col items-center justify-center"
-                                    x-show="activeSlide === index" 
-                                    x-transition:enter="transition ease-out duration-150"
-                                    x-transition:enter-start="opacity-0 transform scale-90"
-                                    x-transition:enter-end="opacity-100 transform scale-100"
-                                    x-transition:leave="transition ease-in duration-150"
-                                    x-transition:leave-start="opacity-100 transform scale-100"
-                                    x-transition:leave-end="opacity-0 transform scale-90">
-
-                                    <template x-if="slide[1] === 'photo' ">
-                                        <img :src="slide[0]" class="object-contain max-w-full max-h-full rounded shadow-lg" />
-                                    </template>
-                                    
-                                    <template x-if="slide[1] != 'photo'  ">
-                                        <video class="object-contain max-w-full max-h-full rounded shadow-lg"  controls> <source :src="slide[0]" >
-                                        </video>
-                                    </template> 
-                                    
-                                </div>
-                                <div  class="fixed text-red-500 text-sm font-bold bottom-0 transform -translate-x-10 w-40 h-12 mb-2 hidden md:flex justify-center items-center"
-                                    x-show="activeSlide === index">
-                                    <span class="w-12 text-right" x-text="index + 1"></span>
-                                    <span class="w-4 text-center">/</span>
-                                    <span class="w-12 text-left" x-text="slides.length"></span>
-                                </div>
-                            </div>
-                        </template>
-
-                    <div class="fixed md:fixed z-50 absolute bottom-1/4 md:bottom-0 md:mb-2 transform -translate-x-8 md:-translate-x-10 flex justify-center" @click.away="open = false">
-                        <div class="flex items-center justify-end w-12 mr-3 md:mr-16">
-                        <button 
-                                type="button"
-                                
-                                class="w-12 h-12 rounded-full focus:outline-none flex items-center justify-center bg-red-500" 
-                               
-                                @click="activeSlide = activeSlide === 0 ? slides.length - 1 : activeSlide - 1">
-                                <span class = "text-white"> <i class="fas fa-lg fa-chevron-left"></i> </span>
-                           
-                        </button>
-                        </div>
-                        <div class="flex items-center justify-start w-12 md:ml-16">
-                        <button 
-                                type="button"
-                                
-                                class="text-white font-bold w-12 h-12 rounded-full focus:outline-none flex items-center justify-center  bg-red-500   "
-                               
-                                @click="activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1">
-                           <span class = "text-white"> <i class="fas fa-lg fa-chevron-right"></i> </span>
-                        </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            </div>
-        </div>     
-
-            
-</div>
-        
-    
-    
-    <div  id= "testimonials" class=" flex items-center justify-center  bg-white text-black   py-20 min-w-screen px-4">
+    <div  id= "testimonials" class=" mt-24  flex items-center justify-center  bg-white text-black   py-20 min-w-screen px-4">
         <div class="px-16 ">
             <div class="container flex flex-col items-center lg:items-startmx-auto lg:items-center">
                 <div class = "sm:mb-4 md:mb-0">
@@ -1180,7 +345,7 @@ class="flex flex-col flex-grow w-full overflow-hidden  lg:flex-row sm:mx-auto  b
                 
                 <a target= "_blank" href="https://www.google.com/maps/place/borton+automotive+detailing+ltd/@40.9940731,-80.6379812,15z/data=!4m5!3m4!1s0x0:0xbb8faf3e7cc6d30b!8m2!3d40.9940731!4d-80.6379812"  class="w-full">
                     <button   type="button" class="inline-flex w-full items-center justify-center h-16 px-6 lg:mr-6 tracking-wide transition duration-200 rounded-lg focus:shadow-outline focus:outline-none  bg-black text-white  hover:bg-red-500  hover:text-black ">
-                            <h5 class="text-2xl font-extrabold">Leave a Review</h5> 
+                            <h5 class="text-2xl font-extrabold">Leave a Review </h5> 
                     </button>
                 </a>
                 
@@ -1202,78 +367,8 @@ class="flex flex-col flex-grow w-full overflow-hidden  lg:flex-row sm:mx-auto  b
         </div>
     </div>
     
-    
-<section id= "faqs" class="py-16   bg-black text-white  md:py-20 lg:py-24">
-    <div class="max-w-5xl px-12 mx-auto xl:px-0">
 
-        <h2  class="mb-5 text-3xl  mx-auto text-center font-extrabold leading-none sm:text-4xl lg:text-7xl">FAQs</h2>
-         <h2  class="my-3 mb-10  text-xl font-medium  text-red-500 text-center">Your questions answered</h2>
-
-        <div class="relative mt-12 space-y-3">
-
-        
-
-            <!-- Question 1 -->
-            <div x-data="{ show: false }" class="relative overflow-hidden border-b border-black-100 select-none">
-                <h3                 
-                @click="show=!show" class=" text-center flex items-center justify-between px-2 text-xl font-medium text-black-900  cursor-pointer sm:text-xl md:text-2xl py-7 hover:text-red-500  lg:text-left">
-                    <span class = "flex text-left lg:text-left">What is the best way to get a quote?</span>
-                    <svg class="w-6 h-6 mr-2 transition-all duration-200 ease-out transform rotate-0" :class="{ '-rotate-180' : show }" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </h3>
-                <p  class="px-2 pt-0 -mt-2  sm:text-lg py-7 text-black-900 text-center lg:text-left"
-                    x-transition:enter="transition-all ease-out duration-300"
-                    x-transition:enter-start="opacity-0 transform -translate-y-4"
-                    x-transition:enter-end="opacity-100 transform -translate-y-0"
-                    x-transition:leave="transition-all ease-in duration-300"
-                    x-transition:leave-start="opacity-100 transform -translate-y-0"
-                    x-transition:leave-end="opacity-0 transform -translate-y-4"
-                    x-show="show"
-                    x-cloak>The best way to get in touch is to call or text (330) 506-7520. We provide personal attention to every customer.</p>
-            </div>
-
-        
-
-        </div>
-    </div>
-</section>
-
-    
-
-<div id="service-area-array" class = "hidden">
-
-    
-        [[&#x27;Boardman&#x27;, &#x27;OH&#x27;, 50]]
-        <div class="city"> Boardman </div>
-        <div class="state"> OH </div>
-        <div class="radius"> 50 </div>
-    
-</div> 
-
-<section id="find-us" class="py-16   text-white bg-black  md:py-20 lg:py-20">
-
-   
-   
-    <div class="max-w-5xl px-12 mx-auto text-center xl:px-0">
-   
-
-    <h2  class="mb-5 text-3xl  mx-auto text-center font-extrabold leading-none sm:text-4xl lg:text-7xl"> Service Areas </h2>
-    <h2  class="my-3 mb-10  text-xl font-medium text-red-500 text-center"> Proudly Serving   Boardman & Surrounding Areas   </h2>
-    <div style="height:500px; width:100%;" id="map"></div>
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSw3qRocbSgfTrtxZbCsTjSHZaaJuUXF4&callback=initMap&libraries=&v=weekly"
-      async
-    ></script> 
-
-
-    
-    </div>
-</section>
-
-
-
-    <section  class="py-10 bg-black-900">
+<section  class="py-10 bg-black-900">
     
         <div class="flex flex-col justify-around text-center md:flex-row">
             <p class="order-last text-sm leading-tight text-red-500 md:order-first"> Crafted with <a  href="https://www.prophone.com/prosite" class=" text-black ">ProPhone</a>. Built with ❤️ by our team. </p>
@@ -1296,10 +391,11 @@ class="flex flex-col flex-grow w-full overflow-hidden  lg:flex-row sm:mx-auto  b
                 
                 <li> <a  href="#find-us" class=" px-2 md:px-4 text-red-500 hover:text-white">Service Areas</a></li>
                 
+                <li> <a  href='sitemap.xml' class=" px-2 md:px-4 text-red-500 hover:text-white">Sitemap</a></li>
             </ul>
         </div>
     </div>
-</section>     
+</section> 
 </div> 
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
