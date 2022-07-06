@@ -35,11 +35,8 @@
        
      
     
-    
     <link href="https://prophone.herokuapp.com/staticfiles/landing_page_gen/style.css" rel="stylesheet">
-    
     <link href="https://prophone.herokuapp.com/staticfiles/landing_page_gen/render.css" rel="stylesheet">
-     <!-- <script src="/staticfiles/landing_page_gen/render.js"></script>   -->
     <script src="https://prophone.herokuapp.com/staticfiles/landing_page_gen/render.js"></script> 
 </head>
 
@@ -49,7 +46,7 @@
     
 
 <div class="fixed z-40 w-full lg:h-25 lg:py-4 items-start justify-start  bg-black text-white  dark-mode:text-gray-200 dark-mode:bg-gray-800">
-  <div x-data="{ open: false }" class="flex flex-col lg:flex-r max-w-screen-xl px-4 mx-auto lg:items-center lg:justify-between lg:flex-row lg:px-6 lg:px-8">
+  <div x-data="{ open: false,buttonDisabled: false }" class="flex flex-col lg:flex-r max-w-screen-xl px-4 mx-auto lg:items-center lg:justify-between lg:flex-row lg:px-6 lg:px-8">
     <div class="py-4 flex flex-row items-center justify-between">
       
         <a href= " index "> <img class="h-16 w-auto relative" src="https://landing-page-app-hero-images.s3.amazonaws.com/media/D9DQITR9EKA7NEJ4OYH15ISF28OMTRZF5M1VIKJQ.jpeg" alt="Borton Automotive Detailing LTD. logo"> </a>
@@ -82,7 +79,6 @@
     <div> Galleries
         <i class="fa fa-caret-down"></i>
     </div>
-    <!-- for desktop -->
     <div class="hidden lg:group-hover:opacity-100 lg:opacity-0 transition duration-500 ease-in-out lg:flex flex-col bg-white z-50 w-full min-w-max absolute top-10 shadow-lg rounded-md px-4 py-4 space-y-3">
         
             <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Detailing-Videos"> Detailing Videos </a>
@@ -96,7 +92,6 @@
             <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Interior-Detailing"> Interior Detailing </a>
         
     </div> 
-    <!-- for mobile b/c can't enable tailwind variants w/o postcss build -->
     <div id='mobile-dropdown' class="lg:hidden hidden transition duration-500 ease-in-out flex flex-col bg-white z-50 w-full min-w-max absolute top-10 shadow-lg rounded-md px-4 py-4 space-y-3">
         
             <a class="transparent rounded-lg text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="gallery-Detailing-Videos"> Detailing Videos </a>
@@ -156,53 +151,52 @@
             <h2 class="mb-3 text-3xl font-extrabold leading-none sm:text-4xl lg:text-7xl tracking-wide  text-center">Detailing Videos</h2>
             <h2 class="my-3 mb-10 text-xl font-medium  text-red-500  text-center">Our Best Work</h2>
             <div class="flex flex-wrap md:mx-4 md:mb-8 md:flex-row" x-data="{ open:false, activeSlide : 0, slides: [                ] }" @keydown.escape= "open = false"   >
-                <!-- <div class="flex flex-wrap md:mx-4 md:mb-8 md:flex-row" x-data="{ open:false, activeSlide : 0, slides: [                ] }" @keydown.escape= "open = false"   > -->
                                     
                     
                         <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-contain w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/32JY38JUZHEAVLJQGI9929DZILL5UUK2ESROWOMM.mp4#t=0.5" >
+                            <video class="rounded shadow-md object-contain w-full h-60" loading="lazy" autoplay loop controls muted> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/IKF3URH7QFGY8PKK6ZM850NPNH1R57QKVP60730B.mp4#t=0.5" >
                             </video>
                         </div>
                     
                                     
                     
                         <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-contain w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/JM15BV75GW858DKLH8QCYAGGLVDGSCMS4T6OAYBN.mp4#t=0.5" >
+                            <video class="rounded shadow-md object-contain w-full h-60" loading="lazy" autoplay loop controls muted> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/KRIFODWEY0SA3PZ0U1OLFDAGZXSKRVM17F5PXWLF.mp4#t=0.5" >
                             </video>
                         </div>
                     
                                     
                     
                         <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-contain w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/JEJWQBABMTVFNZSD6O5PMFLNQWJN15MZ6NL7BROR.mp4#t=0.5" >
+                            <video class="rounded shadow-md object-contain w-full h-60" loading="lazy" autoplay loop controls muted> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/URI3HLSC1Z3SLU2DUTU6GVNO6K9664OMZV6QLTUI.mp4#t=0.5" >
                             </video>
                         </div>
                     
                                     
                     
                         <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-contain w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/943LDG6YFWXPU43XL9FUXSG43CGJ1YENOAG57I4G.mp4#t=0.5" >
+                            <video class="rounded shadow-md object-contain w-full h-60" loading="lazy" autoplay loop controls muted> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/943LDG6YFWXPU43XL9FUXSG43CGJ1YENOAG57I4G.mp4#t=0.5" >
                             </video>
                         </div>
                     
                                     
                     
                         <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-contain w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/URI3HLSC1Z3SLU2DUTU6GVNO6K9664OMZV6QLTUI.mp4#t=0.5" >
+                            <video class="rounded shadow-md object-contain w-full h-60" loading="lazy" autoplay loop controls muted> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/JEJWQBABMTVFNZSD6O5PMFLNQWJN15MZ6NL7BROR.mp4#t=0.5" >
                             </video>
                         </div>
                     
                                     
                     
                         <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-contain w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/KRIFODWEY0SA3PZ0U1OLFDAGZXSKRVM17F5PXWLF.mp4#t=0.5" >
+                            <video class="rounded shadow-md object-contain w-full h-60" loading="lazy" autoplay loop controls muted> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/JM15BV75GW858DKLH8QCYAGGLVDGSCMS4T6OAYBN.mp4#t=0.5" >
                             </video>
                         </div>
                     
                                     
                     
                         <div class="flex cursor-pointer sm:h-30 md:h-auto md:w-1/3 px-4 mb-8 hover:bg-opacity-40">
-                            <video preload="metadata" class="rounded shadow-md object-contain w-full h-60" loading="lazy" controls> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/IKF3URH7QFGY8PKK6ZM850NPNH1R57QKVP60730B.mp4#t=0.5" >
+                            <video class="rounded shadow-md object-contain w-full h-60" loading="lazy" autoplay loop controls muted> <source src="https://landing-page-app-hero-images.s3.amazonaws.com/media/32JY38JUZHEAVLJQGI9929DZILL5UUK2ESROWOMM.mp4#t=0.5" >
                             </video>
                         </div>
                     
@@ -303,10 +297,8 @@
     
 
 <section  class="py-10 bg-black-900">
-    
         <div class="flex flex-col justify-around text-center md:flex-row">
             <p class="order-last text-sm leading-tight text-red-500 md:order-first"> Crafted with <a  href="https://www.prophone.com/prosite" class=" text-black ">ProPhone</a>. Built with ❤️ by our team. </p>
-             
             <ul class="flex flex-row flex-wrap text-center justify-center pb-3 lg:-ml-4 lg:-mr-4 text-sm">
                 <li> <a  href="#about" class="px-2 md:px-4 text-red-500 hover:text-white">About Us</a> </li>
                 
@@ -335,7 +327,6 @@
 </div> 
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-  
 
 </body>
 </html>
